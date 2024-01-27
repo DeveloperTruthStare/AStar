@@ -18,6 +18,9 @@ public class Node {
     public int fCost;       // Total Distance
     public int hCost;       // Distance from end
     public boolean isOnPath = false;
+    public boolean inQueue = false;
+    public boolean closed = false;
+    public int positionInHeap = -1;
     public void calculateCosts() {
         // No diagonal movement so diff = diffI + diffJ
         if (StartNode == null || EndNode == null) {
@@ -25,11 +28,14 @@ public class Node {
             hCost = 99999;
             return;
         }
-        gCost = Math.abs(i - StartNode.i) + Math.abs(j - StartNode.j);
-        if (parent == null)
+        if (parent == null) {
             gCost = 9999;
-        else
+
+        }
+        else {
+            //parent.calculateCosts();
             gCost = parent.gCost + 1;
+        }
 
         if (start)
             gCost = 0;
