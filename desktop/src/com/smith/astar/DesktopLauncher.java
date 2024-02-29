@@ -9,7 +9,8 @@ public class DesktopLauncher {
 	public static void main (String[] arg) {
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setWindowedMode(1920, 1080);
-		config.setForegroundFPS(60);
+		config.setForegroundFPS(10000);
+		config.useVsync(false);
 		config.setTitle("A* Pathfinding");
 		new Lwjgl3Application(new MainClass(), config);
 	}
